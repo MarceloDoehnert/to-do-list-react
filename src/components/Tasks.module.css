@@ -5,24 +5,85 @@
   padding: 1rem;
   height: 4.5rem;
   background: var(--gray-500);
-  border: 0.0625rem solid var(--gray-400);
+  border: 1px solid #333333;
   margin-bottom: 0.75rem;
   box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
   border-radius: 0.5rem;
-}
-
-.task_list input[type=checkbox]::before {
-  content: "";
-  display: block;
-  width: 1.125rem;
-  height: 1.125rem;
-  
-}
-
-
-.task_list p {
   color: var(--gray-100);
   font-size: 0.875rem;
+}
+
+.task_done {
+  display: grid;
+  grid-template-columns: 1.5rem auto 1.5rem;
+  grid-column-gap: 0.75rem;
+  padding: 1rem;
+  height: 4.5rem;
+  background: var(--gray-500);
+  border: 1px solid #262626;
+  margin-bottom: 0.75rem;
+  box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--sxy-400);
+  border-radius: 50%;
+}
+
+.checkbox:hover .checkmark {
+  background-color: var(--sxy-700);
+}
+
+.checkbox input:checked ~ .checkmark {
+  background-color: var(--indigo-700);
+  border: 2px solid var(--indigo-700);
+}
+
+.checkbox input:checked ~ .checkmark:hover {
+  background-color: var(--indigo-400);
+  border: 2px solid var(--indigo-400);
+}
+
+.checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
 }
 
 .task_list .trash {
@@ -32,5 +93,34 @@
   border: none;
   color: var(--gray-300);
   cursor: pointer;
+}
+
+.task_done button {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--gray-300);
+  cursor: pointer;
+}
+
+.task_done button:hover {
+  color: var(--red-500);
+  background: var(--gray-400);
+  border-radius: 5px;
+}
+
+.task_list button:hover {
+  color: var(--red-500);
+  background: var(--gray-400);
+  border-radius: 5px;
+}
+
+.task_done svg {
+  margin-top: 4px;
+}
+
+.task_list svg {
+  margin-top: 4px;
 }
 

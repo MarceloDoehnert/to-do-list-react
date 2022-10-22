@@ -25,7 +25,7 @@ export function Form({onAddNewTask}) {
         placeholder='Adicione uma nova tarefa' 
         type="text"
         />
-        <button type="submit">Criar <PlusCircle size={38} /></button>
+        <button type="submit">Criar <PlusCircle size={22} /></button>
       </form>
     </div>
   )

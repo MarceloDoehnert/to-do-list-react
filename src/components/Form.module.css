@@ -33,3 +33,6 @@
   cursor: pointer;
 }
 
+.input_area button:hover {
+  background-color: var(--sxy-400);
+}

@@ -6,24 +6,25 @@ interface TasksProps {
     id: string,
     title: string,
     taskComplete: boolean,
-    onDeleteTask: (taskToDelete: object) => void
+    onSelectedTask: (id: string) => void,
 }
 
-export function Tasks({title, onDeleteTask, taskToDelete}: TasksProps) {
+export function Tasks({ id, title, taskComplete, onSelectedTask}: TasksProps) {
 
-  function handleDeleteTasks() {
-    onDeleteTask(taskToDelete)
+  function handleSelectedTask() {
+    onSelectedTask(id)
   }
 
   return (
-    <div className={styles.task_list}>
+    <div className={`${taskComplete ? styles.task_list : styles.task_done}`}>
       <label className={styles.checkbox}>
-        <input type="checkbox" />
+        <input onClick={handleSelectedTask} type="checkbox" />
+        <span className={styles.checkmark}></span>
       </label>
       <p>
         {title}
       </p>
-      <button className={styles.trash} onClick={handleDeleteTasks}><Trash size={16} /></button>
+      <button className={styles.trash}><Trash size={16} /></button>
     </div>
   )
 }

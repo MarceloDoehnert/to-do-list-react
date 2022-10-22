@@ -28,13 +28,13 @@ export function App() {
       {
         id: uuidv4(),
         title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-        taskComplete: false
+        taskComplete: true
       },
     
       {
         id: uuidv4(),
         title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-        taskComplete: false
+        taskComplete: true
       }
     ]
   )
@@ -43,17 +43,20 @@ export function App() {
     const newTask = {
       id: uuidv4(),
       title: content,
-      taskComplete: false
+      taskComplete: true
     }
     setTasks([...tasks, newTask])
   }
 
-  function deleteTask(taskToDelete: object) {
-    const taskDelete = tasks.filter(task => {
-      return task !== taskToDelete 
+  function selectedTask(id) {
+    const completedTask = tasks.map(task => {
+      if(task.id === id) {
+        return {id: task.id, title: task.title, taskComplete: false}
+      }else {
+        return {id: task.id, title: task.title, taskComplete: task.taskComplete}
+      }
     })
-
-    setTasks(taskDelete)
+    setTasks(completedTask)
   }
   
   return (
@@ -63,7 +66,6 @@ export function App() {
       <main>
         <Form
         onAddNewTask={addNewTask}
-        onDeleteTask={deleteTask}
         />
 
         <section className={styles.tasks_done_created}>
@@ -79,6 +81,7 @@ export function App() {
             key={task.id}
             title={task.title}
             taskComplete={task.taskComplete}
+            onSelectedTask={selectedTask}
             />
             )
           })}
