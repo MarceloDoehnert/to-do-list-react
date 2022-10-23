@@ -3,16 +3,21 @@ import styles from './Tasks.module.css'
 import { Trash } from 'phosphor-react'
 
 interface TasksProps {
-    id: string,
-    title: string,
-    taskComplete: boolean,
-    onSelectedTask: (id: string) => void,
+    id: string
+    title: string
+    taskComplete: boolean
+    onSelectedTask: (id: string) => void
+    onDeletedTask: (tasks: string) => void
 }
 
-export function Tasks({ id, title, taskComplete, onSelectedTask}: TasksProps) {
+export function Tasks({ id, title, taskComplete, onSelectedTask, onDeletedTask}: TasksProps) {
 
   function handleSelectedTask() {
     onSelectedTask(id)
+  }
+
+  function handleRemoveTask() {
+    onDeletedTask(title)
   }
 
   return (
@@ -24,7 +29,7 @@ export function Tasks({ id, title, taskComplete, onSelectedTask}: TasksProps) {
       <p>
         {title}
       </p>
-      <button className={styles.trash}><Trash size={16} /></button>
+      <button onClick={handleRemoveTask} className={styles.trash}><Trash size={16} /></button>
     </div>
   )
 }

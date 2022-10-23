@@ -21,19 +21,19 @@ export function App() {
     [
       {
         id: uuidv4(),
-        title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+        title: "Estudar mais Javascript",
         taskComplete: true
       },
     
       {
         id: uuidv4(),
-        title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+        title: "Estudar mais inglês",
         taskComplete: true
       },
     
       {
         id: uuidv4(),
-        title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+        title: "Ler mais livros",
         taskComplete: true
       }
     ]
@@ -48,7 +48,7 @@ export function App() {
     setTasks([...tasks, newTask])
   }
 
-  function selectedTask(id) {
+  function selectedTask(id: string) {
     const completedTask = tasks.map(task => {
       if(task.id === id) {
         return {id: task.id, title: task.title, taskComplete: false}
@@ -58,6 +58,15 @@ export function App() {
     })
     setTasks(completedTask)
   }
+
+  function deletedTask(taskToDelete: string) {
+    const taskDeletedFromList = tasks.filter(task => {
+      return task.title !== taskToDelete
+    })
+
+    setTasks(taskDeletedFromList)
+  }
+
   
   return (
     <div>
@@ -82,6 +91,7 @@ export function App() {
             title={task.title}
             taskComplete={task.taskComplete}
             onSelectedTask={selectedTask}
+            onDeletedTask={deletedTask}
             />
             )
           })}
