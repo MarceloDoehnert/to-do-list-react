@@ -67,7 +67,8 @@ export function App() {
     setTasks(taskDeletedFromList)
   }
 
-  
+  const numberOfTasks = tasks.length
+
   return (
     <div>
       <Header />
@@ -78,8 +79,12 @@ export function App() {
         />
 
         <section className={styles.tasks_done_created}>
-          <CreatedTask />
-          <DonedTask />
+          <CreatedTask 
+          onNumberOfTasks={numberOfTasks}
+          />
+          <DonedTask 
+          onNumberOfTasks={numberOfTasks}
+          />
         </section>
 
         <article>

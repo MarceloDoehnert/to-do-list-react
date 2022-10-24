@@ -1,10 +1,14 @@
 import styles from './DonedTask.module.css'
 
-export function DonedTask() {
+interface NumberOfTasksProps {
+  onNumberOfTasks: number
+}
+
+export function DonedTask({onNumberOfTasks}: NumberOfTasksProps) {
   return (
     <div className={styles.doned_task}>
       <strong>Concluídas</strong>
-      <span>2 de 5</span>
+      <span>2 de {onNumberOfTasks}</span>
     </div>
   )
 }
