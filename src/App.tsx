@@ -69,6 +69,15 @@ export function App() {
 
   const numberOfTasks = tasks.length
 
+  const countTaskDone = tasks.reduce((acumulador, tasks) =>{
+    if(tasks.taskComplete === false) {
+      acumulador ++
+    }
+    
+    return acumulador
+  }, 0)
+
+
   return (
     <div>
       <Header />
@@ -82,7 +91,8 @@ export function App() {
           <CreatedTask 
           onNumberOfTasks={numberOfTasks}
           />
-          <DonedTask 
+          <DonedTask
+          onCountTaskDone={countTaskDone}
           onNumberOfTasks={numberOfTasks}
           />
         </section>
