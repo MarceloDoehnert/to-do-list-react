@@ -5,7 +5,7 @@
   padding: 1rem;
   height: 4.5rem;
   background: var(--gray-500);
-  border: 1px solid #333333;
+  border: 0.0625rem solid #333333;
   margin-bottom: 0.75rem;
   box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
   border-radius: 0.5rem;
@@ -20,7 +20,7 @@
   padding: 1rem;
   height: 4.5rem;
   background: var(--gray-500);
-  border: 1px solid #262626;
+  border: 0.0625rem solid #262626;
   margin-bottom: 0.75rem;
   box-shadow: 0rem 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
   border-radius: 0.5rem;
@@ -47,9 +47,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
-  border: 2px solid var(--sxy-400);
+  height: 1.25rem;
+  width: 1.25rem;
+  border: 0.125rem solid var(--sxy-400);
   border-radius: 50%;
 }
 
@@ -59,24 +59,24 @@
 
 .checkbox input:checked ~ .checkmark {
   background-color: var(--indigo-700);
-  border: 2px solid var(--indigo-700);
+  border: 0.125rem solid var(--indigo-700);
 }
 
 .checkbox input:checked ~ .checkmark:hover {
   background-color: var(--indigo-400);
-  border: 2px solid var(--indigo-400);
+  border: 0.125rem solid var(--indigo-400);
 }
 
 .checkbox .checkmark:after {
   content: "";
   position: absolute;
   display: none;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 10px;
+  left: 0.3125rem;
+  top: 0.0625rem;
+  width: 0.3125rem;
+  height: 0.625rem;
   border: solid var(--white);
-  border-width: 0 2px 2px 0;
+  border-width: 0 0.125rem 0.125rem 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -117,10 +117,10 @@
 }
 
 .task_done svg {
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
 .task_list svg {
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
