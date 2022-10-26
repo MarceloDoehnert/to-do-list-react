@@ -1,9 +1,6 @@
 // CSS
 import styles from './App.module.css'
 
-// Icons
-import { PlusCircle, ClipboardText, Trash } from 'phosphor-react'
-
 // UUID
 import { v4 as uuidv4 } from 'uuid'
 
@@ -14,6 +11,7 @@ import { Form } from './components/Form'
 import { useState, FormEvent, ChangeEvent } from 'react'
 import { CreatedTask } from './components/CreatedTask'
 import { DonedTask } from './components/DonedTask'
+import { NoTask } from './components/NoTask'
 
 export function App() {
 
@@ -21,19 +19,19 @@ export function App() {
     [
       {
         id: uuidv4(),
-        title: "Estudar mais Javascript",
+        title: "Estudar Javascript.",
         taskComplete: true
       },
     
       {
         id: uuidv4(),
-        title: "Estudar mais inglês",
+        title: "Estudar inglês.",
         taskComplete: true
       },
     
       {
         id: uuidv4(),
-        title: "Ler mais livros",
+        title: "Estudar mais React JS.",
         taskComplete: true
       }
     ]
@@ -77,7 +75,6 @@ export function App() {
     return acumulador
   }, 0)
 
-
   return (
     <div>
       <Header />
@@ -98,7 +95,7 @@ export function App() {
         </section>
 
         <article>
-          {tasks.map(task => {
+          {tasks.length === 0 ? <NoTask /> : tasks.map(task => {
             return (
             <Tasks
             id={task.id}
@@ -110,6 +107,7 @@ export function App() {
             />
             )
           })}
+          {}
         </article>
       </main>
     </div>

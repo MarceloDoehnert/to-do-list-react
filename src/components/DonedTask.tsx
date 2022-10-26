@@ -11,7 +11,7 @@ export function DonedTask({onNumberOfTasks, onCountTaskDone}: NumberOfTasksProps
   return (
     <div className={styles.doned_task}>
       <strong>Concluídas</strong>
-      <span>{onCountTaskDone} de {onNumberOfTasks}</span>
+      <span>{onNumberOfTasks === 0 ? `0` : `${onCountTaskDone} de ${onNumberOfTasks}`}</span>
     </div>
   )
 }

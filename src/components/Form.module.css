@@ -36,3 +36,8 @@
 .input_area button:hover {
   background-color: var(--sxy-400);
 }
+
+.input_area button[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
