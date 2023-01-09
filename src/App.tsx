@@ -49,9 +49,9 @@ export function App() {
   function selectedTask(id: string) {
     const completedTask = tasks.map(task => {
       if(task.id === id) {
-        return {id: task.id, title: task.title, taskComplete: false}
+        return {id: task.id, title: task.title, taskComplete: !task.taskComplete}
       }else {
-        return {id: task.id, title: task.title, taskComplete: task.taskComplete}
+        return task
       }
     })
     setTasks(completedTask)
